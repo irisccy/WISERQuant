@@ -1,0 +1,27 @@
+---
+title: "WISERQuant Data API manual"
+author: "rokia"
+date: "2016年10月14日"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,eval = F)
+```
+
+## 步骤一
+
+拨入VPN
+
+## 步骤二
+
+加载getData函数后运行，当前数据包括所有A股2014年9月到2016年9月的1分钟交易数据。校园网本地取1只股票1年的数据大概1分钟。远程访问可能会受网络带宽影响。
+
+注意：不要把数据库连接串（包含服务器地址及用户名密码）上传到git上。
+
+```{r}
+#例子，第一个参数股票代码，第二个参数开始月份，第三个参数结束时间。
+ds<-getData("000001",201601,201608)
+
+```
+
