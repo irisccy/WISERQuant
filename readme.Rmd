@@ -13,11 +13,12 @@ knitr::opts_chunk$set(echo = TRUE,eval = F)
 
 创建项目from https://github.com/zhichaoluo/WISERQuant
 
+*注意* getData函数使用了RJDBC，需要确保本地有sqljdbc4.jar
 
 
 ## 步骤二
 
-拨入VPN
+拨入学院VPN
 
 ## 步骤三
 
