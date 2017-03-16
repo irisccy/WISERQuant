@@ -1,14 +1,33 @@
-#RJDBC
-getData<-function(stock,from,to){
-library(RJDBC)
+#RJDBC 
+getGTA<-function(code="RB1701",from="201701",to="201702",type="MF",f="TRDMIN",l="L1"){
+  #code:RB1701
+  #from: 201701
+  #to: 201702
+  #type:MF
+  #f:TRDMIN
+  #l:L1 L2
+  
+  library(RJDBC)
   drv <- JDBC("com.microsoft.sqlserver.jdbc.SQLServerDriver","sqljdbc4.jar")
-  con <- dbConnect(drv, url="jdbc:sqlserver://121.192.176.98", user="stock", password="wisesoe.002",dbname="tempdata")
-  getSql<-paste0("tempdata..get_data ", "'",stock,"'",',',"'",from,"'",',',"'",to,"'")
+  con <- dbConnect(drv, url="jdbc:sqlserver://xx.xx.xx.xx", user="xx", password="xx",dbname="GTA_MFL1_TRDMIN_201701")
+  getSql<-"select top 10000 * from GTA_MFL1_TRDMIN_201701.dbo.MFL1_TRDMIN01_201701 where contractid='RB1701'"
   ds<-dbGetQuery(con, getSql)
   dbDisconnect(con)
   return(ds)
+  
+  
+}
+getLevel2Test<-function(){
+  library(RJDBC)
+  drv <- JDBC("com.microsoft.sqlserver.jdbc.SQLServerDriver","sqljdbc4.jar")
+  con <- dbConnect(drv, url="jdbc:sqlserver://210.34.5.41", user="gta", password="gta",dbname="GTA_MFL1_TRDMIN_201701")
+  getSql<-"select top 10000 * from GTA_MFL1_TRDMIN_201701.dbo.MFL1_TRDMIN01_201701 where contractid='RB1705'"
+  ds<-dbGetQuery(con, getSql)
+  dbDisconnect(con)
+  return(ds)
+  
+  
 }
 
-
 #sample 
-s0102<-getData("399300",201601,201601)
+s0102<-getData("000010",201610,201610)
