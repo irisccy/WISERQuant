@@ -1,30 +1,3 @@
----
-title: "WISERQuant Data API manual"
-author: "rokia"
-date: "2016年10月14日"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,eval = F)
-```
-
-## 步骤一
-
-创建项目from https://github.com/zhichaoluo/WISERQuant
-
-*注意* getData函数使用了RJDBC，需要确保本地有sqljdbc4.jar
-
-
-## 步骤二
-
-拨入学院VPN
-
-## 步骤三
-
-获取相关数据
-
-```{r}
 #sample code 
 source("src/getGtaData.r")
 source("src/conGta.r")
@@ -43,7 +16,4 @@ ds<-getGtaData(code="000858.SZ",t1="SZL2",t2="Trade",from="20170101",to="2017020
 #获取上海市场股票高频逐笔交易数据
 #t1="SHL2" ,t2="TRANSACTION",t3="SEL2"
 ds<-getGtaData(code="600104.SH",t1="SHL2" ,t2="TRANSACTION",t3="SEL2",from="20170101",to="20170201")
-
-
-```
 

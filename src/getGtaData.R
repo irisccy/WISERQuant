@@ -1,5 +1,4 @@
 
-ds<-getGtaData(code="A1701",t1="MFL1",t2="TRDMIN",f="60")
 
 getGtaData<-function(code="000004.SZ",t1="SZL2",t2="TRADE",t3="SEL2",f="60",from="20161201",to="20161201",tf="tempData",...){
   if (toupper(t1)=="SEL1" & toupper(t2)=="TRDMIN"){
@@ -26,11 +25,6 @@ getGtaData<-function(code="000004.SZ",t1="SZL2",t2="TRADE",t3="SEL2",f="60",from
   
 }
 
-
-
-##
-
-
 creatFt<-function(from,to){
   from<-as.Date(from,"%Y%m%d")
   to<-as.Date(to,"%Y%m%d")
@@ -38,7 +32,7 @@ creatFt<-function(from,to){
   ft<-format(ft,format="%Y%m")
 }
 creatSeL1TrdMin<-function(code,t1,t2,f,from,to,tf){
-  
+  #t1="SEL1" t2="TRDMIN"
   if(substr(code,7,9)== ".SH") {
     local="SHL1"
   } else {local="SZL1"}
@@ -111,9 +105,6 @@ creatMfL1TrdMin<-function(code,t1,t2,f,from,to,tf){
   }
   return(list(sql,fn))
 }
-
-
-
 
 downData<-function(getSql,fn){
   
