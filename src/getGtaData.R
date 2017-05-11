@@ -1,29 +1,6 @@
 
 
-getGtaData<-function(code="000004.SZ",t1="SZL2",t2="TRADE",t3="SEL2",f="60",from="20161201",to="20161201",tf="tempData",...){
-  if (toupper(t1)=="SEL1" & toupper(t2)=="TRDMIN"){
-    sqlfn<-creatSeL1TrdMin(code,t1,t2,f,from,to,tf)
-  }
-  if (toupper(t1)=="SEL1" & toupper(t2)=="TAQ"){
-    sqlfn<-creatSeL1TAQ(code,t1,t2,from,to,tf)
-  }  
-  if (toupper(t1)=="SZL2" & toupper(t2)=="TRADE"){
-    sqlfn<-creatSzl2Trade(code,t1,t2,from,to,tf)
-  } 
-  if (toupper(t1)=="SHL2" & toupper(t2)=="TRANSACTION"){
-    sqlfn<-creatShl2Transaction(code,t1,t2,t3,from,to,tf)
-  } 
-  if (toupper(t1)=="MFL1" & toupper(t2)=="TRDMIN"){
-    sqlfn<-creatMfL1TrdMin(code,t1,t2,f,from,to,tf)
-  } 
-  
-  allds<-list()
-  allds<- Map(downData,sqlfn[[1]],sqlfn[[2]])
-  allds<-do.call(rbind,allds)
-  rownames(allds)<-NULL
-  return(allds)
-  
-}
+ds<-getGtaData(code="RB1706",t1="MFL1",t2="TRDMIN",f="60",from="20170101",to="20170201")
 
 creatFt<-function(from,to){
   from<-as.Date(from,"%Y%m%d")
@@ -101,7 +78,7 @@ creatMfL1TrdMin<-function(code,t1,t2,f,from,to,tf){
     #example:GTA_MFL1_TrdMin_200308.dbo.MFL1_TRDMIN01_200308
     sql[i]<-paste0("select  * from GTA_",t1,"_",t2,"_",
                    ftList[i],".dbo.",t1,"_",t2,f,"_",ftList[i], " where CONTRACTID='",code,"'")
-    fn[i]<-paste0(tf,"/",t1,"_",t2,"_",ftList[i],".rda")
+    fn[i]<-paste0(tf,"/",t1,"_",t2,"_",ftList[i],"_",code,".rda")
   }
   return(list(sql,fn))
 }
