@@ -42,7 +42,7 @@ creatSeL1TrdMin<-function(code,t1,t2,f,from,to,tf){
   for (i in seq_along(ftList)){ 
     #example:get GTA_SeL1_TrdMin_200903.dbo.SHL1_TRDMIN01_200903
     sql[i]<-paste0("select  * from GTA_",t1,"_",t2,"_",ftList[i],".dbo.",local,"_",t2,f,"_",ftList[i]," where seccode='",substr(code,1,6),"'")
-    fn[i]<-paste0(tf,"/",local,"_",t2,f,"_",ftList[i],"_",substr(code,1,6),".rda")
+    fn[i]<-paste0(tf,"/",local,"_",t2,f,"_",ftList[i],"_",substr(code,1,6),"_",f,".rda")
   }
   return(list(sql,fn))
 }
@@ -101,7 +101,7 @@ creatMfL1TrdMin<-function(code,t1,t2,f,from,to,tf){
     #example:GTA_MFL1_TrdMin_200308.dbo.MFL1_TRDMIN01_200308
     sql[i]<-paste0("select  * from GTA_",t1,"_",t2,"_",
                    ftList[i],".dbo.",t1,"_",t2,f,"_",ftList[i], " where CONTRACTID='",code,"'")
-    fn[i]<-paste0(tf,"/",t1,"_",t2,"_",ftList[i],"_",code,".rda")
+    fn[i]<-paste0(tf,"/",t1,"_",t2,"_",ftList[i],"_",code,"_",f,".rda")
   }
   return(list(sql,fn))
 }
