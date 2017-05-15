@@ -1,11 +1,11 @@
 #sample code 
 source("src/getGtaData.r")
 source("src/conGta.r")
-#请联系相关老师获得conGta.r文件
+#请联系相关老师获得conGta.r文件中的用户名及密码
 
 #获取期货分钟交易数据
 #t1="MFL1" t2="TRDMIN" 
-ds<-getGtaData(code="A1701",t1="MFL1",t2="TRDMIN",f="60",from="20170101",to="20170201")
+ds<-getGtaData(code="A1705",t1="MFL1",t2="TRDMIN",f="05",from="20170101",to="20170201")
 
 #获取股票分钟交易数据
 #t1="SEL1" t2="TRDMIN"
