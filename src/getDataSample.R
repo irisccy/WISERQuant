@@ -19,3 +19,7 @@ ds<-getGtaData(code="000858.SZ",t1="SZL2",t2="Trade",from="20170101",to="2017020
 #t1="SHL2" ,t2="TRANSACTION",t3="SEL2"
 ds<-getGtaData(code="600104.SH",t1="SHL2" ,t2="TRANSACTION",t3="SEL2",from="20170101",to="20170201")
 
+#获取股票市场TAQ交易数据
+#t1="SEL1" ,t2="TAQ"
+ds<-getGtaData(code="600104.SH",t1="SEL1" ,t2="TAQ",from="20160101",to="20161231")
+
